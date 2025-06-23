@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yolopark.store - Premium Domain for Sale</title>
+    <title>yolopark.store • Premium Brandable Domain (24h Sale)</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -26,57 +26,143 @@
             font-size: 2.5rem;
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+        }
+        .price-container {
+            background: #f1f8fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
         }
         .price {
-            font-size: 1.8rem;
+            font-size: 2rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #95a5a6;
+            font-size: 1.2rem;
+        }
+        .discount-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .timer {
+            font-size: 1.3rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .urgency-note {
+            background: #fff4f4;
+            padding: 10px;
+            border-radius: 5px;
             color: #e74c3c;
             margin: 20px 0;
-            font-weight: bold;
+            font-size: 0.95rem;
         }
         .cta-button {
             display: inline-block;
-            background: #3498db;
+            background: #27ae60;
             color: white;
-            padding: 12px 30px;
+            padding: 14px 35px;
             font-size: 1.2rem;
             border-radius: 5px;
             text-decoration: none;
-            margin: 20px 0;
+            margin: 15px 0;
             transition: background 0.3s;
+            font-weight: bold;
         }
         .cta-button:hover {
-            background: #2980b9;
+            background: #219955;
         }
-        .expiry-note {
-            color: #95a5a6;
-            font-style: italic;
+        .benefits {
+            text-align: left;
+            margin: 25px 0;
+            padding-left: 20px;
+        }
+        .benefits li {
+            margin: 8px 0;
         }
         .footer {
-            margin-top: 40px;
+            margin-top: 30px;
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="domain-name">yolopark.store</div>
-        <div class="tagline">A premium domain for your next project</div>
+        <div class="tagline">A brandable, memorable domain for startups, apps, or e-commerce</div>
         
-        <div class="price">$60</div>
-        <div class="expiry-note">Offer expires June 2026</div>
+        <div class="price-container">
+            <div class="price" id="price">$60</div>
+            <div style="margin-top: 5px;">
+                <span class="original-price">$500</span>
+                <span class="discount-badge">88% OFF</span>
+            </div>
+        </div>
         
-        <a href="https://sedo.com/search/details/?domain=yolopark.store&origin=domaindetails" class="cta-button">Buy Now on Sedo</a>
+        <div class="urgency-note">
+            ⏳ <strong>FLASH SALE:</strong> Price increases to $500 in <span id="timer">24:00:00</span>
+        </div>
+        
+        <a href="https://sedo.com/search/details/?domain=yolopark.store&origin=domaindetails" class="cta-button">👉 Claim This Domain Now</a>
+        
+        <div class="benefits">
+            <h3>Why this domain?</h3>
+            <ul>
+                <li><strong>Brandable</strong> – Short, catchy, and easy to remember</li>
+                <li><strong>Versatile</strong> – Perfect for tech, parks, or urban projects</li>
+                <li><strong>.store</strong> – Ideal for e-commerce or digital products</li>
+            </ul>
+        </div>
         
         <div class="footer">
-            This domain is listed for sale. Contact via Sedo for inquiries.
+            Listed on Sedo for secure transaction. Offer expires when timer hits zero.
         </div>
     </div>
+
+    <script>
+        // 24-hour countdown (starts on page load)
+        const countdownDuration = 24 * 60 * 60 * 1000; // 24h in ms
+        const startTime = new Date().getTime();
+        
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const elapsed = now - startTime;
+            const remaining = countdownDuration - elapsed;
+            
+            if (remaining <= 0) {
+                document.getElementById('price').textContent = "$500";
+                document.getElementById('timer').textContent = "00:00:00";
+                document.querySelector('.urgency-note').innerHTML = 
+                    "🔴 <strong>SALE ENDED!</strong> Regular price now applies.";
+                return;
+            }
+            
+            const hours = Math.floor(remaining / (1000 * 60 * 60));
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+            
+            document.getElementById('timer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        };
+        
+        updateTimer(); // Run immediately
+        setInterval(updateTimer, 1000); // Update every second
+    </script>
 </body>
-            </html>
+    </html>
